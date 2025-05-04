@@ -6,6 +6,8 @@ import Modal from "react-modal";
 import techBook from "../../../public/images/techbook_img.jpg";
 import techBookPreview from "../../../public/images/techbook_screenshot.png";
 
+Modal.setAppElement("#__next");
+
 const ModalPreview = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -56,14 +58,11 @@ const ModalPreview = () => {
             e.stopPropagation();
           }}
         >
-          <div
-            className="img-container"
-            style={{ overflowY: "auto" }}
-          >
+          <div className="img-container" style={{ overflowY: "auto" }}>
             <Image
               src={techBook}
               alt="Image of the techbook website"
-              layout="intrinsic"              
+              layout="intrinsic"
               style={{
                 objectFit: "cover",
               }}
@@ -76,14 +75,13 @@ const ModalPreview = () => {
               articles and projects.
             </p>
             <div className="tech-stack-container">
-              <p className="tech-stack">
-                Tech stack
-                <div className="badges">
-                  <span className="badges-frontend">React</span>
-                  <span className="badges-backend">NodeJS</span>
-                  <span className="badges-backend">MongoDB</span>
-                </div>
-              </p>
+              <p className="tech-stack"> </p>
+              Tech stack
+              <div className="badges">
+                <span className="badges-frontend">React</span>
+                <span className="badges-backend">NodeJS</span>
+                <span className="badges-backend">MongoDB</span>
+              </div>
             </div>
             <div className="modal-links">
               <li>
