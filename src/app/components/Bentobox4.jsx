@@ -25,7 +25,7 @@ export default function Bentobox4() {
 
         <div className="icon-container-wrapper">
           <div className="icon-container">
-            <Image src={reactIcon} alt="react icon" width={100} height={100} />
+            <Image src={reactIcon} alt="react icon" width={100} height={60} />
             <p>React</p>
           </div>
           <div className="icon-container">
@@ -33,7 +33,7 @@ export default function Bentobox4() {
               src={javascriptIcon}
               alt="react icon"
               width={100}
-              height={100}
+              height={60}
             />
             <p>JavaScript</p>
           </div>
@@ -42,24 +42,24 @@ export default function Bentobox4() {
               src={typescriptIcon}
               alt="react icon"
               width={100}
-              height={100}
+              height={60}
             />
             <p>Typescript</p>
           </div>
           <div className="icon-container">
-            <Image src={nextJsIcon} alt="react icon" width={100} height={100} />
+            <Image src={nextJsIcon} alt="react icon" width={100} height={60} />
             <p>NextJS</p>
           </div>
           <div className="icon-container">
-            <Image src={mongoIcon} alt="react icon" width={100} height={100} />
+            <Image src={mongoIcon} alt="react icon" width={100} height={60} />
             <p>MongoDB</p>
           </div>
           <div className="icon-container">
-            <Image src={sassIcon} alt="react icon" width={100} height={100} />
+            <Image src={sassIcon} alt="react icon" width={100} height={60} />
             <p>Sass/SCSS</p>
           </div>
           <div className="icon-container">
-            <Image src={nodeIcon} alt="react icon" width={100} height={100} />
+            <Image src={nodeIcon} alt="react icon" width={100} height={60} />
             <p>NodeJS</p>
           </div>
         </div>

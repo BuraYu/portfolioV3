@@ -6,9 +6,12 @@ import Modal from "react-modal";
 import techBook from "../../../public/images/techbook_img.jpg";
 import techBookPreview from "../../../public/images/techbook_screenshot.png";
 
-Modal.setAppElement("#__next");
+
 
 const ModalPreview = () => {
+  
+  Modal.setAppElement('#__next')
+
   const [modalIsOpen, setIsOpen] = useState(false);
 
   let subtitle;
