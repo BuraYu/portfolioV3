@@ -8,7 +8,7 @@ const Cli = () => {
     "I'm Burak, a former team leader turned web developer. After five years of managing a diverse team, I transitioned into coding, where I now enjoy building, problem-solving, and exploring the tech world.";
   const unknownCommand = "unknown command";
   const socials = "You'll find my socials right above the terminal.";
-  const help = "about | projects | clear | socials ";
+  const help = "about | projects | clear | socials";
   const projects =
     "There is an arrow pointing on button to open the sidebar. Feel free to click it to get an overview of my projects.";
 
@@ -20,51 +20,49 @@ const Cli = () => {
       cliRef.current.scrollTop = cliRef.current.scrollHeight;
     }
   }, [data]);
+
   const test = (inputValue) => {
     switch (inputValue) {
       case "clear":
         setData([]);
         break;
       case "about":
-        hurr(about);
+        inputCase(about);
         break;
       case "":
-        hurr("you forgot to enter something");
+        inputCase("you forgot to enter something");
         break;
       case "projects":
-        hurr(projects);
+        inputCase(projects);
         break;
       case "help":
-        hurr(help);
+        inputCase(help);
         break;
       case "socials":
-        hurr(socials);
+        inputCase(socials);
         break;
       default:
-        hurr(unknownCommand);
+        inputCase(unknownCommand);
     }
   };
 
-  const hurr = (inputValue) => {
+  const inputCase = (inputValue) => {
     let i = 0;
+    const newLine = "";
 
-    setData((prev) => [...prev, ""]);
+    setData((prev) => [...prev, newLine]);
+    const lineIndex = data.length;
 
     const interval = setInterval(() => {
+      i++;
       setData((prev) => {
-        if (!prev.length) return prev;
-
-        let updatedData = [...prev];
-        let lastIndex = updatedData.length - 1;
-
-        if (i < inputValue.length) {
-          updatedData[lastIndex] += inputValue[i];
-          i++;
+        const updated = [...prev];
+        if (i <= inputValue.length) {
+          updated[lineIndex] = inputValue.slice(0, i);
         } else {
           clearInterval(interval);
         }
-
-        return updatedData;
+        return updated;
       });
     }, 15);
   };
@@ -89,8 +87,8 @@ const Cli = () => {
       </p>
 
       <div>
-        {data.map((ele) => {
-          return <p>{ele}</p>;
+        {data.map((ele, index) => {
+          return <p key={index}>&gt;{ele}</p>;
         })}
       </div>
       <div className="input-wrapper">
