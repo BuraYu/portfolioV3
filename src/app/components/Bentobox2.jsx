@@ -11,7 +11,7 @@ export default function Bentobox2() {
     const fetchMessages = async () => {
       try {
         const response = await fetch(
-          "http://www.burakyueksel.com/api/readChat"
+          "https://www.burakyueksel.com/api/readChat"
         );
         if (response.ok) {
           const data = await response.json();
@@ -48,7 +48,7 @@ export default function Bentobox2() {
 
         try {
           const response = await fetch(
-            "http://www.burakyueksel.com/api/sendMessage",
+            "https://www.burakyueksel.com/api/sendMessage",
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },
