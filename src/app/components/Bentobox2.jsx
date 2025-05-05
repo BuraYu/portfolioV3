@@ -26,6 +26,8 @@ export default function Bentobox2() {
       }
     };
     fetchMessages();
+    const interval = setInterval(fetchMessages, 1000); 
+    return () => clearInterval(interval);
   }, []);
 
   const handleSubmit = async () => {
