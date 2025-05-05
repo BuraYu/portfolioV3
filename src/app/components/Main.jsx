@@ -14,19 +14,19 @@ const Main = () => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
 
-  useEffect(() => {
-    const fetchMessages = async () => {
-      try {
-        const response = await fetch("http://localhost:5000/api/messages");
-        const data = await response.json();
-        setMessages(data);
-      } catch (error) {
-        console.error("Error fetching messages:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchMessages = async () => {
+  //     try {
+  //       const response = await fetch("http://localhost:5000/api/messages");
+  //       const data = await response.json();
+  //       setMessages(data);
+  //     } catch (error) {
+  //       console.error("Error fetching messages:", error);
+  //     }
+  //   };
 
-    fetchMessages();
-  }, [messages]);
+  //   fetchMessages();
+  // }, [messages]);
 
   const sendMessage = async () => {
     if (!newMessage.trim()) return;

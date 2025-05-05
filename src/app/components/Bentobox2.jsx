@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 
 export default function Bentobox2() {
   const [messages, setMessages] = useState([]);
-
   const [input, setInput] = useState("");
   const [name, setName] = useState("");
   const [nameSet, setNameSet] = useState(false);
@@ -11,12 +10,16 @@ export default function Bentobox2() {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/messageChat");
+        const response = await fetch("http://localhost:3000/api/readChat");
         if (response.ok) {
           const data = await response.json();
+          const sortedMessages = data.sort(
+            (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
+          );
+
           setMessages(data);
         } else {
-          console.log(console.error("Failed to fetch data"));
+          console.error("Failed to fetch data");
         }
       } catch (error) {
         console.error("Error", error);
@@ -25,7 +28,7 @@ export default function Bentobox2() {
     fetchMessages();
   }, []);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!nameSet) {
       if (input.trim()) {
         setName(input.trim());
@@ -34,8 +37,30 @@ export default function Bentobox2() {
       }
     } else {
       if (input.trim()) {
-        setMessages([{ username: name, message: input }, ...messages]);
+        const newMessage = { username: name, message: input };
+
+        setMessages([newMessage, ...messages]);
         setInput("");
+
+        try {
+          const response = await fetch(
+            "http://localhost:3000/api/sendMessage",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(newMessage),
+            }
+          );
+
+          if (response.ok) {
+            const data = await response.json();
+            console.log("Message sent:", data);
+          } else {
+            console.error("Failed to send message");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+        }
       }
     }
   };
