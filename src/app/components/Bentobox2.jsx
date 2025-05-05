@@ -10,7 +10,9 @@ export default function Bentobox2() {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/readChat");
+        const response = await fetch(
+          "http://www.burakyueksel.com/api/readChat"
+        );
         if (response.ok) {
           const data = await response.json();
           const sortedMessages = data.sort(
@@ -26,7 +28,7 @@ export default function Bentobox2() {
       }
     };
     fetchMessages();
-    const interval = setInterval(fetchMessages, 1000); 
+    const interval = setInterval(fetchMessages, 1000);
     return () => clearInterval(interval);
   }, []);
 
@@ -46,7 +48,7 @@ export default function Bentobox2() {
 
         try {
           const response = await fetch(
-            "http://localhost:3000/api/sendMessage",
+            "http://www.burakyueksel.com/api/sendMessage",
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },
