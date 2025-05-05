@@ -1,18 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 export default function Bentobox2() {
-  const [messages, setMessages] = useState([
-    { username: "Alice", message: "Hello, how are you?" },
-    { username: "Bob", message: "I'm good, thanks! How about you?" },
-    { username: "Charlie", message: "Hey everyone, what's up?" },
-    { username: "Alice", message: "Just working on a project." },
-    { username: "Bob", message: "Same here, trying to finish my tasks." },
-  ]);
+  const [messages, setMessages] = useState([]);
 
   const [input, setInput] = useState("");
   const [name, setName] = useState("");
   const [nameSet, setNameSet] = useState(false);
+
+  useEffect(() => {
+    const fetchMessages = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/api/messageChat");
+        if (response.ok) {
+          const data = await response.json();
+          setMessages(data);
+        } else {
+          console.log(console.error("Failed to fetch data"));
+        }
+      } catch (error) {
+        console.error("Error", error);
+      }
+    };
+    fetchMessages();
+  }, []);
 
   const handleSubmit = () => {
     if (!nameSet) {
@@ -23,7 +34,7 @@ export default function Bentobox2() {
       }
     } else {
       if (input.trim()) {
-        setMessages([...messages, { username: name, message: input }]);
+        setMessages([{ username: name, message: input }, ...messages]);
         setInput("");
       }
     }
