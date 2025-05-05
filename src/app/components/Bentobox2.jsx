@@ -28,7 +28,7 @@ export default function Bentobox2() {
       }
     };
     fetchMessages();
-    const interval = setInterval(fetchMessages, 1000);
+    const interval = setInterval(fetchMessages, 10000);
     return () => clearInterval(interval);
   }, []);
 
