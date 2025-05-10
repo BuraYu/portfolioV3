@@ -331,6 +331,13 @@ h2 {
   border-radius: 10px;
 }
 
+.pre-modal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
 .div7 {
   grid-area: 4 / 2 / 5 / 4;
   background-color: #ce20d4;
