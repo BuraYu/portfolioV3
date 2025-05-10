@@ -1,18 +1,20 @@
 import React from "react";
-import { useState } from "react";
+import { CircleX, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import "./modal.css";
+import "../styles/modal.css";
 import Modal from "react-modal";
 import techBook from "../../../public/images/techbook_img.jpg";
 import techBookPreview from "../../../public/images/techbook_screenshot.png";
 
-
-
 const ModalPreview = () => {
-  
-  Modal.setAppElement('#__next')
-
   const [modalIsOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    Modal.setAppElement("#__next");
+  }, []);
 
   let subtitle;
 
@@ -32,105 +34,107 @@ const ModalPreview = () => {
       left: "50%",
       right: "auto",
       bottom: "auto",
-      marginRight: "-50%",
       transform: "translate(-50%, -50%)",
-      width: "60%",
+      width: "94vw",
+      maxWidth: "1200px",
+      maxHeight: "95vh",
+      overflow: "auto",
+      borderRadius: "12px",
+      padding: "0px",
     },
-  };
-  var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
   };
 
   return (
     <div className="div6-content" onClick={openModal}>
-      <Modal
-        isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-        shouldCloseOnOverlayClick={true}
-      >
-        <div
-          className="modal-container"
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
+      <div>
+        <Modal
+          isOpen={modalIsOpen}
+          onAfterOpen={afterOpenModal}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+          shouldCloseOnOverlayClick={true}
         >
-          <div className="img-container" style={{ overflowY: "auto" }}>
-            <Image
-              src={techBook}
-              alt="Image of the techbook website"
-              layout="intrinsic"
-              style={{
-                objectFit: "cover",
-              }}
-            />
-          </div>
-          <div className="modal-description">
-            <h2 className="modal-title">TechBook</h2>
-            <p>
-              TechBook is a platform for sharing and discovering tech-related
-              articles and projects.
-            </p>
-            <div className="tech-stack-container">
-              <p className="tech-stack"> </p>
-              Tech stack
-              <div className="badges">
-                <span className="badges-frontend">React</span>
-                <span className="badges-backend">NodeJS</span>
-                <span className="badges-backend">MongoDB</span>
-              </div>
+          <div
+            className="modal-container"
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            <div className="img-container">
+              <Image
+                src="https://picsum.photos/400/400"
+                width={700}
+                height={700}
+                alt="Image of the techbook website"
+                layout="intrinsic"
+              />
             </div>
-            <div className="modal-links">
-              <li>
+            <div className="modal-description">
+              <CircleX className="modal-close-button" onClick={closeModal} />
+
+              <h2 className="modal-title">TechBook</h2>
+              <h3>About</h3>
+              <p>
+                A fully responsive e-commerce platform with cart functionality,
+                user authentication, and payment processing. Features include
+                product filtering, search functionality, and admin dashboard for
+                inventory management.
+              </p>
+              <div className="tech-stack-container">
+                <h3 className="tech-stack">Technologies</h3>
+                <div className="badges">
+                  <span className="badges-frontend">React</span>
+                  <span className="badges-frontend">React</span>
+
+                  <span className="badges-frontend">React</span>
+                  <span className="badges-backend">NodeJS</span>
+                  <span className="badges-backend">MongoDB</span>
+                </div>
+              </div>
+              <div className="modal-links">
                 <a
-                  href="https://github.com/BuraYu/techbook"
+                  className="github-button"
+                  href="https://github.com/burayu/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  GitHub Repository
+                  <Github className="github-icon" />
+                  View Code
                 </a>
-              </li>
-              <li>
                 <a
-                  href="http://techbook-sigma.vercel.app"
+                  className="visit-website-button"
+                  href="https://somevercellink.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
+                  <ExternalLink className="external-link-icon" />
                   Visit Website
                 </a>
-              </li>
+              </div>
             </div>
-            <button className="close-button" onClick={closeModal}>
-              Close
-            </button>
           </div>
-        </div>
-      </Modal>
-      <p>TechBook</p>
-      <div
-        style={{
-          position: "relative",
-          width: "300px",
-          height: "250px",
-        }}
-      >
-        <Image
-          src={techBookPreview}
-          alt="screenshot of the latest project"
-          fill
+        </Modal>
+        <p>TechBook</p>
+        <div
           style={{
-            objectFit: "cover",
-            width: "100%",
+            position: "relative",
+            width: "300px",
+            height: "250px",
           }}
-        />
+        >
+          <Image
+            src={techBookPreview}
+            alt="screenshot of the latest project"
+            fill
+            style={{
+              objectFit: "cover",
+              width: "100%",
+            }}
+          />
+        </div>
+        <p>Click to learn more</p>
       </div>
-      <p>Click to learn more</p>
     </div>
   );
 };
