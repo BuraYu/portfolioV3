@@ -1,34 +1,52 @@
+import rsvpCreateEventImage from "../assets/rsvp/create_event.png";
+import rsvpMainImage from "../assets/rsvp/main.png";
+import rsvpOverviewImage from "../assets/rsvp/event_overview.png";
+import rsvpEventDetailsImage from "../assets/rsvp/event_details.png";
+import rsvpFindEventImage from "../assets/rsvp/find_event.png";
+import rsvpRsvpImage from "../assets/rsvp/rsvp.png";
+
 const projectData = [
   {
     id: "1",
-    title: "TechBook",
-    description:
-      "A responsive e-commerce platform with cart functionality, user authentication, and payment processing.",
+    title: "Flokr",
+    description: "RSVP and event managing app for flockin with people.",
     tech: {
-      frontend: ["React", "TailwindCSS", "Next.js"],
-      backend: ["NodeJS", "MongoDB"],
+      frontend: ["Next.JS", "TailwindCSS"],
+      backend: ["MongoDB"],
     },
     previewImage: {
-      url: "https://picsum.photos/id/1015/300/200",
-      alt: "TechBook preview",
+      url: rsvpMainImage,
+      alt: "Main screen of the Flokr RSVP app",
     },
     carouselImages: [
       {
-        url: "https://picsum.photos/id/1015/800/500",
-        alt: "TechBook homepage view",
+        url: rsvpMainImage,
+        alt: "Main screen of the Flokr RSVP app",
       },
       {
-        url: "https://picsum.photos/id/1016/800/500",
-        alt: "Cart page",
+        url: rsvpEventDetailsImage,
+        alt: "Event details view showing description and attendees",
       },
       {
-        url: "https://picsum.photos/id/1018/800/500",
-        alt: "Admin dashboard",
+        url: rsvpOverviewImage,
+        alt: "Dashboard overview with multiple upcoming events",
+      },
+      {
+        url: rsvpCreateEventImage,
+        alt: "Create event form with fields for title, date, and location",
+      },
+      {
+        url: rsvpFindEventImage,
+        alt: "Search and browse screen for public events",
+      },
+      {
+        url: rsvpRsvpImage,
+        alt: "RSVP response page with Yes/No/Maybe options",
       },
     ],
     links: {
-      github: "https://github.com/burayu/techbook",
-      live: "https://techbook.vercel.app",
+      github: "https://github.com/burayu/rsvp",
+      live: "https://rsvp-rust.vercel.app/",
     },
   },
   {

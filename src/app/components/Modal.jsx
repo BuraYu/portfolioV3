@@ -31,7 +31,7 @@ const ModalPreview = () => {
 
   useEffect(() => {
     setProject(projectData[projectNumber]);
-  }, [handleNextProject, handlePrevProject]);
+  }, [projectNumber]);
 
   useEffect(() => {
     Modal.setAppElement("#__next");

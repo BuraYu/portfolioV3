@@ -1,0 +1,29 @@
+[33mcommit a3c30353af83760fc52a0f2721c1329e13c88c79[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: BuraYu <burak.yueksel@hotmail.com>
+Date:   Sun May 11 16:13:57 2025 +0200
+
+    feat: add onclick function on modal
+
+[33mcommit 793a42217bdba874105d9b59f81d232f9e2d93a1[m
+Author: BuraYu <burak.yueksel@hotmail.com>
+Date:   Sun May 11 15:37:48 2025 +0200
+
+    feat: add project change ui in modal
+
+[33mcommit 71024705bdc0504609a0026476e5cd763d2454ae[m
+Author: BuraYu <burak.yueksel@hotmail.com>
+Date:   Sat May 10 20:12:50 2025 +0200
+
+    feat: add slick for image in modal, dummy data
+
+[33mcommit aeeafd9555e89cf471af41ec1dc1f00c7ac3ac19[m
+Author: BuraYu <burak.yueksel@hotmail.com>
+Date:   Sat May 10 16:10:21 2025 +0200
+
+    feat: add responsive modal with project preview and tech stack badges style change
+
+[33mcommit a70019faaeeb041e43f382853ae860fc3d2aa072[m
+Author: BuraYu <burak.yueksel@hotmail.com>
+Date:   Tue May 6 22:23:21 2025 +0200
+
+    feat: add hamburger menu to navbar
