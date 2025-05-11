@@ -10,8 +10,28 @@ import "slick-carousel/slick/slick-theme.css";
 
 const ModalPreview = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [projectNumber, setProjectNumber] = useState(0);
+  const [project, setProject] = useState(projectData[projectNumber]);
 
-  const project = projectData[0];
+  const handleNextProject = () => {
+    if (projectNumber + 1 < projectData.length) {
+      setProjectNumber(projectNumber + 1);
+    } else {
+      setProjectNumber(0);
+    }
+  };
+
+  const handlePrevProject = () => {
+    if (projectNumber === 0) {
+      setProjectNumber(projectData.length - 1);
+    } else {
+      setProjectNumber(projectNumber - 1);
+    }
+  };
+
+  useEffect(() => {
+    setProject(projectData[projectNumber]);
+  }, [handleNextProject, handlePrevProject]);
 
   useEffect(() => {
     Modal.setAppElement("#__next");
@@ -122,8 +142,8 @@ const ModalPreview = () => {
             </div>
 
             {/* Project arrows */}
-            <div class="nav-buttons">
-              <button class="nav-button">
+            <div className="nav-buttons">
+              <button className="nav-button" onClick={handlePrevProject}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -134,15 +154,15 @@ const ModalPreview = () => {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  class="icon"
+                  className="icon"
                 >
                   <path d="m12 19-7-7 7-7"></path>
                   <path d="M19 12H5"></path>
                 </svg>
-                <span class="sr-only"></span>
+                <span className="sr-only"></span>
               </button>
 
-              <button class="nav-button">
+              <button className="nav-button" onClick={handleNextProject}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -153,12 +173,12 @@ const ModalPreview = () => {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  class="icon"
+                  className="icon"
                 >
                   <path d="M5 12h14"></path>
                   <path d="m12 5 7 7-7 7"></path>
                 </svg>
-                <span class="sr-only"></span>
+                <span className="sr-only"></span>
               </button>
             </div>
           </div>
