@@ -12,8 +12,8 @@ const ModalPreview = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [projectNumber, setProjectNumber] = useState(0);
   const [project, setProject] = useState(projectData[projectNumber]);
-  const [clickedImage, setClickedImage] = useState(null);
   const [isFullScreenOpen, setIsFullScreenOpen] = useState(false);
+  const [clickedImageIndex, setClickedImageIndex] = useState(0);
 
   const handleNextProject = () => {
     if (projectNumber + 1 < projectData.length) {
@@ -64,9 +64,21 @@ const ModalPreview = () => {
     arrows: true,
   };
 
-  const handleImageClick = (imageUrl) => {
-    setClickedImage(imageUrl);
+  const handleImageClick = (index) => {
+    setClickedImageIndex(index);
     setIsFullScreenOpen(true);
+  };
+
+  const handleFullScreenNext = () => {
+    setClickedImageIndex((prevIndex) =>
+      prevIndex + 1 < project.carouselImages.length ? prevIndex + 1 : 0
+    );
+  };
+
+  const handleFullScreenPrev = () => {
+    setClickedImageIndex((prevIndex) =>
+      prevIndex === 0 ? project.carouselImages.length - 1 : prevIndex - 1
+    );
   };
 
   return (
@@ -84,14 +96,14 @@ const ModalPreview = () => {
               {project.carouselImages.map((img, idx) => (
                 <div
                   key={idx}
+                  onClick={() => handleImageClick(idx)}
                   style={{ position: "relative", width: "100%" }}
-                  onClick={() => handleImageClick(img.url)}
                 >
                   <Image
                     src={img.url}
                     alt={img.alt}
-                    width={700}
-                    height={700}
+                    width={500}
+                    height={500}
                     loading="lazy"
                     style={{ cursor: "pointer" }}
                   />
@@ -220,6 +232,9 @@ const ModalPreview = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            flexDirection: "column",
+            height: "100vh",
+            position: "relative",
           },
         }}
       >
@@ -236,16 +251,85 @@ const ModalPreview = () => {
         >
           <CircleX />
         </div>
-        {clickedImage && (
+        {project.carouselImages[clickedImageIndex] && (
           <Image
-            src={clickedImage}
-            alt="Full-screen image"
+            src={project.carouselImages[clickedImageIndex].url}
+            alt={project.carouselImages[clickedImageIndex].alt}
             layout="intrinsic"
-            width={1400}
-            height={1000}
-            objectFit="contain"
+            width={1300}
+            height={900}
+            objectFit="fill"
           />
         )}
+
+        {/* Navigation buttons for full-screen image */}
+        <div
+          style={{
+            marginTop: "20px",
+            display: "flex",
+            justifyContent: "center",
+            gap: "10px",
+            cursor: "pointer",
+            position: "absolute",
+            bottom: "3%",
+            left: "50%",
+            transform: "translateX(-50%)",
+          }}
+        >
+          <button
+            className="nav-button"
+            onClick={handleFullScreenPrev}
+            style={{
+              backgroundColor: "transparent",
+              border: "none",
+              cursor: "pointer",
+              color: "white",
+            }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="icon"
+            >
+              <path d="m12 19-7-7 7-7"></path>
+              <path d="M19 12H5"></path>
+            </svg>
+          </button>
+
+          <button
+            className="nav-button"
+            onClick={handleFullScreenNext}
+            style={{
+              backgroundColor: "transparent",
+              border: "none",
+              cursor: "pointer",
+              color: "white",
+            }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="icon"
+            >
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
       </Modal>
     </div>
   );

@@ -9,8 +9,9 @@
 .img-container {
   width: 50%;
   overflow: hidden;
-  max-height: 700px;
+  max-height: 500px;
   position: relative;
+  outline: none;
 }
 
 .img-container img {
@@ -26,28 +27,17 @@
   z-index: 10;
   display: flex !important;
   justify-content: center;
-  gap: 6px;
+  gap: 1px;
 }
 
 .slick-dots li button:before {
-  font-family: none;
-  font-size: 0;
   content: "";
   display: inline-block;
-  border: 1px solid #c71818;
-  background-color: rgb(255, 255, 255);
   border-radius: 50%;
   opacity: 1;
   transition: all 0.3s ease;
 }
 
-.slick-dots li:not(.slick-active) button:before {
-  border: 1px solid #fff;
-  background-color: rgb(0, 0, 0);
-
-  transform: scale(1);
-  opacity: 1;
-}
 
 .modal-description {
   width: 50%;
