@@ -51,7 +51,7 @@ const ModalPreview = () => {
         shouldCloseOnOverlayClick={true}
       >
         <div className="modal-container" onClick={(e) => e.stopPropagation()}>
-          {/* ⏩ Carousel */}
+          {/* Carousel */}
           <div className="img-container">
             <Slider {...sliderSettings}>
               {project.carouselImages.map((img, idx) => (
@@ -74,7 +74,7 @@ const ModalPreview = () => {
             </Slider>
           </div>
 
-          {/* ℹ️ Info */}
+          {/* Info */}
           <div className="modal-description">
             <CircleX
               className="modal-close-button"
@@ -120,11 +120,52 @@ const ModalPreview = () => {
                 Visit Website
               </a>
             </div>
+
+            {/* Project arrows */}
+            <div class="nav-buttons">
+              <button class="nav-button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  class="icon"
+                >
+                  <path d="m12 19-7-7 7-7"></path>
+                  <path d="M19 12H5"></path>
+                </svg>
+                <span class="sr-only"></span>
+              </button>
+
+              <button class="nav-button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  class="icon"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+                <span class="sr-only"></span>
+              </button>
+            </div>
           </div>
         </div>
       </Modal>
 
-      {/* 📸 Preview */}
+      {/* Preview */}
       <div className="pre-modal-container">
         <p>{project.title}</p>
         <div style={{ position: "relative", width: "300px", height: "250px" }}>
