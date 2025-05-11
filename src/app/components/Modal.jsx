@@ -12,6 +12,8 @@ const ModalPreview = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [projectNumber, setProjectNumber] = useState(0);
   const [project, setProject] = useState(projectData[projectNumber]);
+  const [clickedImage, setClickedImage] = useState(null);
+  const [isFullScreenOpen, setIsFullScreenOpen] = useState(false);
 
   const handleNextProject = () => {
     if (projectNumber + 1 < projectData.length) {
@@ -62,6 +64,11 @@ const ModalPreview = () => {
     arrows: true,
   };
 
+  const handleImageClick = (imageUrl) => {
+    setClickedImage(imageUrl);
+    setIsFullScreenOpen(true);
+  };
+
   return (
     <div className="div6-content" onClick={() => setIsOpen(true)}>
       <Modal
@@ -77,10 +84,8 @@ const ModalPreview = () => {
               {project.carouselImages.map((img, idx) => (
                 <div
                   key={idx}
-                  style={{
-                    position: "relative",
-                    width: "100%",
-                  }}
+                  style={{ position: "relative", width: "100%" }}
+                  onClick={() => handleImageClick(img.url)}
                 >
                   <Image
                     src={img.url}
@@ -88,6 +93,7 @@ const ModalPreview = () => {
                     width={700}
                     height={700}
                     loading="lazy"
+                    style={{ cursor: "pointer" }}
                   />
                 </div>
               ))}
@@ -198,6 +204,49 @@ const ModalPreview = () => {
         </div>
         <p>Click to learn more</p>
       </div>
+
+      {/* Full-screen image modal */}
+      <Modal
+        isOpen={isFullScreenOpen}
+        onRequestClose={() => setIsFullScreenOpen(false)}
+        style={{
+          content: {
+            top: "0",
+            left: "0",
+            right: "0",
+            bottom: "0",
+            padding: "0",
+            backgroundColor: "black",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          },
+        }}
+      >
+        <div
+          onClick={() => setIsFullScreenOpen(false)}
+          style={{
+            cursor: "pointer",
+            position: "absolute",
+            top: "10px",
+            right: "10px",
+            color: "white",
+            fontSize: "2rem",
+          }}
+        >
+          <CircleX />
+        </div>
+        {clickedImage && (
+          <Image
+            src={clickedImage}
+            alt="Full-screen image"
+            layout="intrinsic"
+            width={1400}
+            height={1000}
+            objectFit="contain"
+          />
+        )}
+      </Modal>
     </div>
   );
 };
