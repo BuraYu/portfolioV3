@@ -1,4 +1,5 @@
 import "./globals.css";
+import "./styles/modal.css";
 
 export const metadata = {
   title: "Create Next App",
@@ -8,8 +9,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-
       <body>
         <div id="__next">{children}</div>
       </body>

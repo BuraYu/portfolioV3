@@ -1,7 +1,5 @@
 import { motion } from "framer-motion";
-import Modal from "./Modal";
-
-
+import ModalPreview from "./modal/ModalPreview";
 
 export default function Bentobox6() {
   const style = {
@@ -21,7 +19,7 @@ export default function Bentobox6() {
         initial={{ y: "150vh", opacity: 0 }}
       >
         <h2 className="bento-header">projectss.</h2>
-        <Modal />
+        <ModalPreview />
       </motion.div>
     </>
   );

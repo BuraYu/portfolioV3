@@ -269,7 +269,13 @@ h2 {
 }
 
 .icon-container img {
-  max-width: 70px;
+  max-width: 50px;
+}
+
+@media (max-width: 400px) {
+  .icon-container img {
+    max-width: 30px;
+  }
 }
 
 .icon-container p {

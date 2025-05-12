@@ -38,7 +38,6 @@
   transition: all 0.3s ease;
 }
 
-
 .modal-description {
   width: 50%;
   padding: 2rem;
@@ -259,17 +258,21 @@
 
   .img-container {
     width: 100%;
-    max-height: 300px;
+    height: 50%;
   }
 
   .img-container img {
     width: 100%;
+    height: 100%;
     height: auto;
     object-fit: fill;
   }
 
   .modal-description {
     width: 100%;
+  }
+  .modal-description {
+    padding-bottom: 4rem;
   }
 }
 
@@ -280,9 +283,5 @@
     right: auto;
     margin-top: 1.5rem;
     justify-content: center;
-  }
-
-  .modal-description {
-    padding-bottom: 4rem;
   }
 }
