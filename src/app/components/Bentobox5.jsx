@@ -13,7 +13,9 @@ export default function Bentobox5() {
         initial={{ x: "-150vh", opacity: 0 }}
       >
         <h2 className="bento-header">who am i.</h2>
-        <p>Fullstack Dev based in Berlin with a background in management</p>
+        <p style={{ textAlign: "center" }}>
+          Fullstack Dev based in Berlin with a background in management
+        </p>
       </motion.div>
     </>
   );

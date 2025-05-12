@@ -18,7 +18,7 @@ export default function Bentobox6() {
         }}
         initial={{ y: "150vh", opacity: 0 }}
       >
-        <h2 className="bento-header">projectss.</h2>
+        <h2 className="bento-header">projects.</h2>
         <ModalPreview />
       </motion.div>
     </>
