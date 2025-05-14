@@ -1,9 +1,9 @@
-import Projects from "../components/Projects";
+// import Projects from "../components/Projects";
 
-export default function ProjectsOverview() {
-  return (
-    <>
-      <Projects />
-    </>
-  );
-}
+// export default function ProjectsOverview() {
+//   return (
+//     <>
+//       <Projects />
+//     </>
+//   );
+// }
