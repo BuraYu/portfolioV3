@@ -3,8 +3,7 @@ import ModalPreview from "./modal/ModalPreview";
 
 export default function Bentobox6() {
   const style = {
-    background:
-      "linear-gradient(90deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%)",
+    background: "#228B22",
   };
   return (
     <>
