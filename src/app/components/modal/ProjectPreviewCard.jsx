@@ -8,7 +8,7 @@ const ProjectPreviewCard = ({ project }) => (
         src={project.previewImage.url}
         alt={project.previewImage.alt}
         fill
-        style={{ objectFit: "cover", width: "100%" }}
+        style={{ objectFit: "contain", width: "100%" }}
       />
     </div>
     <p>Click to learn more</p>

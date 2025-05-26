@@ -13,7 +13,6 @@ const sliderSettings = {
 };
 
 const ProjectCarousel = ({ images, onImageClick }) => (
-  
   <div className="img-container">
     <Slider {...sliderSettings}>
       {images.map((img, idx) => (
