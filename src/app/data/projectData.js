@@ -94,8 +94,8 @@ const projectData = [
       },
     ],
     links: {
-      github: "https://github.com/burayu/rsvp",
-      live: "https://rsvp-rust.vercel.app/",
+      github: "https://github.com/BuraYu/shaila",
+      live: "https://shaila-rho.vercel.app/",
     },
   },
 ];
