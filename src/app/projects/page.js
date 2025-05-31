@@ -1,9 +1,9 @@
-// import Projects from "../components/Projects";
+const Projects = () => {
+  return (
+    <div>
+      <h1>Projects</h1>
+    </div>
+  );
+};
 
-// export default function ProjectsOverview() {
-//   return (
-//     <>
-//       <Projects />
-//     </>
-//   );
-// }
+export default Projects;
