@@ -1,0 +1,41 @@
+.project-main__container {
+  position: relative;
+  height: 100vh;
+}
+
+.project-title__container {
+  position: absolute;
+  top: 70%;
+  left: 5%;
+  width: 25%;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.project-title__container h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #333;
+  margin: 0.5rem 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.project-details__container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.project-details {
+  margin-left: 30%;
+  background-color: #61bd59;
+  color: #fff;
+  padding: 2rem;
+  border-radius: 50px;
+}
