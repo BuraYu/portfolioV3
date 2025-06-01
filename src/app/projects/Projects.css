@@ -1,10 +1,11 @@
 .project-main__container {
   position: relative;
   height: 100vh;
+  overflow: hidden;
 }
 
 .project-title__container {
-  position: absolute;
+  position: fixed;
   top: 70%;
   left: 5%;
   width: 25%;
@@ -12,6 +13,8 @@
   border-radius: 10px;
   padding: 1rem;
   overflow-y: auto;
+  transform: translateY(-50%);
+  z-index: 10;
 }
 
 .project-title__container h1 {
@@ -22,20 +25,35 @@
   color: #333;
   margin: 0.5rem 0;
   font-family: "Helvetica Neue", Arial, sans-serif;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
 }
 
-.project-details__container {
-  height: 100%;
+.project-title__container h1.active-title {
+  opacity: 1;
+  color: #000;
+}
+
+.project-sections__container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.project-section {
+  scroll-snap-align: start;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 1rem;
 }
 
 .project-details {
-  margin-left: 30%;
   background-color: #61bd59;
   color: #fff;
   padding: 2rem;
   border-radius: 50px;
+  max-width: 600px;
+  text-align: center;
 }
