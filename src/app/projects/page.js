@@ -2,10 +2,23 @@
 import React, { useEffect, useRef, useState } from "react";
 import projectData from "../data/projectData";
 import "./Projects.css";
+import Slider from "react-slick/lib/slider";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Image from "next/image";
 
 const Projects = () => {
   const sectionRefs = useRef([]);
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -20,7 +33,7 @@ const Projects = () => {
       {
         root: null,
         rootMargin: "0px",
-        threshold: 0.6, 
+        threshold: 0.6,
       }
     );
 
@@ -57,8 +70,21 @@ const Projects = () => {
             data-index={index}
           >
             <div className="project-details">
-              <h2>{ele.title}</h2>
-              <p>{ele.description}</p>
+              <div className="slider-wrapper">
+                <Slider {...settings}>
+                  {ele.carouselImages.map((img, index) => (
+                    <Image
+                      key={index}
+                      src={img.url}
+                      alt={img.alt}
+                      width={1800}
+                      height={1800}
+                      loading="lazy"
+                      style={{ cursor: "pointer", borderRadius: "20px" }}
+                    />
+                  ))}
+                </Slider>
+              </div>
             </div>
           </section>
         ))}

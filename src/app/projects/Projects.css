@@ -35,6 +35,10 @@
 }
 
 .project-sections__container {
+  position: fixed;
+  top: 0;
+  left: 35%;
+  width: calc(100% - 35%);
   height: 100vh;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
@@ -46,14 +50,24 @@
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
 }
 
 .project-details {
-  background-color: #61bd59;
-  color: #fff;
-  padding: 2rem;
-  border-radius: 50px;
-  max-width: 600px;
-  text-align: center;
+  padding: 0;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.slider-wrapper img {
+  height: 100%;
+  object-fit: contain;
 }
